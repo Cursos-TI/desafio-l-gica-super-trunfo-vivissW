@@ -116,23 +116,167 @@ int main() {
     printf("\n"); 
 
 // Resultado do jogo
-    printf ("***carta 1 VS carta 2***\n");
+    int input, input2, resultado, resultado2;
+int atributo1_1, atributo1_2, atributo2_1, atributo2_2;
+char escolhido1[50]; 
+char escolhido2[50];
+printf("**Carta 1 vs Carta 2**\n");
+printf("1. Populacao\n2. Area\n3. PIB\n4. Pontos turisticos\n5. Densidade populacional\n6. PIB PER CAPITA\n");
+scanf("%d", &input);
 
-    printf("** Resultado: 1 para verdadeiro - Carta 1 vence | 0 para falso - Carta 2 vence **\n");
-    printf("\n"); 
-    printf("Resultado: ");  
-    if (populacao > populacao2){
-        printf("Carta 1 venceu!", resultado1);  
-    } else if (populacao == populacao2) {
-        printf("Empate\n");
-    } else 
-        printf("Carta 2 venceu!\n", resultado1);
-        printf("\n"); 
-
-        printf("Carta 1 - %s (%s): %ld\n", nome, estado, populacao);
-        printf("Carta 2 - %s (%s): %ld\n", nome2, estado2, populacao2);
-
-
-    return 0; 
-
-}
+    switch (input) {
+        case 1:
+            printf("Comparacao de Populacao:\n%s: %d vs %s: %d\n", nome, populacao, nome2, populacao2);
+            resultado1 = (populacao > populacao2) ? 1 : 2;
+            atributo1_1 = populacao;
+            atributo1_2 = populacao2;
+            sprintf(escolhido1, "Populacao");
+            break;
+        case 2:
+            printf("Comparacao de Area:\n%s: %.2f km² vs %s: %.2f km²\n", nome, area, nome2, area2);
+            resultado = (area > area2) ? 1 : 2;
+            atributo1_1 = area;
+            atributo2_1 = area2;
+            sprintf(escolhido1, "Area");
+            break;
+        case 3:
+            printf("Comparacao de PIB:\n%s: %.2f bilhoes vs %s: %.2f bilhoes\n", nome, pib, nome2, pib2);
+            resultado = (pib > pib2) ? 1 : 2;
+            atributo1_1 = pib;
+            atributo2_1 = pib2;
+            sprintf(escolhido1, "PIB");
+            break;
+        case 4:
+            printf("Comparacao de Pontos turisticos:\n%s: %d vs %s: %d\n", nome, ponto_turistico, nome2, ponto_turistico2);
+            resultado = (ponto_turistico > ponto_turistico2) ? 1 : 2;
+            atributo1_1 = ponto_turistico;
+            atributo2_1 = ponto_turistico2;
+            sprintf(escolhido1, "Pontos turisticos");
+            break;
+        case 5:
+            printf("Comparacao de Densidade populacional:\n%s: %.2f hab/km vs %s: %.2f hab/km\n", nome, densidade, nome2, densidade2);
+            resultado = (densidade > densidade2) ? 1 : 2;
+            atributo1_1 = densidade;
+            atributo2_1 = densidade2;
+            sprintf(escolhido1, "Densidade populacional");
+            break;
+        case 6:
+            printf("Comparacao de PIB per capita:\n%s: %.2f reais vs %s: %.2f reais\n", nome, pib_per_capita, nome2, pib_per_capita2);
+            resultado = (pib_per_capita > pib_per_capita2) ? 1 : 2;
+            atributo1_1 = pib_per_capita;
+            atributo2_1 = pib_per_capita2;
+            sprintf(escolhido1, "PIB PER CAPITA");
+            break;
+        default:
+            printf("Opcao invalida!\n");
+            return 0;
+    }
+        if (atributo1_1 != atributo2_1){
+        printf("Resultado: Carta %d (%s) venceu!\n\n", resultado, (resultado == 1) ? nome : nome2);
+        }else{
+        printf("Empate\n\n");}
+    
+    
+    
+        printf("Escolha um outro atributo para batalhar:\n");
+            switch (input)
+            {
+            case 1:
+                printf("2. Area\n3. PIB\n4. Pontos turisticos\n5. Densidade populacional\n6. PIB PER CAPITA\n");
+                break;
+            case 2:
+                printf("1. Populacao\n3. PIB\n4. Pontos turisticos\n5. Densidade populacional\n6. PIB PER CAPITA\n");
+                break;
+            case 3:
+                printf("1. Populacao\n2. Area\n4. Pontos turisticos\n5. Densidade populacional\n6. PIB PER CAPITA\n");
+                break;
+            case 4:
+                printf("1. Populacao\n2. Area\n3. PIB\nn5. Densidade populacional\n6. PIB PER CAPITA\n");
+                break;
+            case 5:
+                printf("1. Populacao\n2. Area\n3. PIB\n4. Pontos turisticos\n6. PIB PER CAPITA\n");
+                break;
+            case 6:
+                printf("1. Populacao\n2. Area\n3. PIB\n4. Pontos turisticos\n5. Densidade populacional\n");
+                break;
+            
+            default:
+                break;
+            }
+            scanf("%d", &input2);
+    
+            switch (input2) {
+                case 1:
+                    printf("Comparacao de Populacao:\n%s: %d vs %s: %d\n", nome, populacao, nome2, populacao2);
+                    resultado2 = (populacao > populacao2) ? 1 : 2;
+                    atributo1_2 = populacao;
+                    atributo2_2 = populacao2;
+                    sprintf(escolhido2, "Populacao");
+                    break;
+                case 2:
+                    printf("Comparacao de Area:\n%s: %.2f km² vs %s: %.2f km²\n", nome, area, nome2, area2);
+                    resultado2 = (area > area2) ? 1 : 2;
+                    atributo1_2 = area;
+                    atributo2_2 = area2;
+                    sprintf(escolhido2, "Area");
+                    break;
+                case 3:
+                    printf("Comparacao de PIB:\n%s: %.2f bilhoes vs %s: %.2f bilhoes\n", nome, pib, nome2, pib2);
+                    resultado2 = (pib > pib2) ? 1 : 2;
+                    atributo1_2 = pib;
+                    atributo2_2 = pib2;
+                    sprintf(escolhido2, "PIB");
+                    break;
+                case 4:
+                    printf("Comparacao de Pontos turisticos:\n%s: %d vs %s: %d\n", nome, ponto_turistico, nome2, ponto_turistico2);
+                    resultado2 = (ponto_turistico > ponto_turistico2) ? 1 : 2;
+                    atributo1_2 = ponto_turistico;
+                    atributo2_2 = ponto_turistico2;
+                    sprintf(escolhido2, "Pontos turisticos");
+                    break;
+                case 5:
+                    printf("Comparacao de Densidade populacional:\n%s: %.2f hab/km² vs %s: %.2f hab/km²\n", nome, densidade, nome2, densidade2);
+                    resultado2 = (densidade > densidade2) ? 1 : 2;
+                    atributo1_2 = densidade;
+                    atributo2_2 = densidade2;
+                    sprintf(escolhido2, "Densidade populacional");
+                    break;
+                case 6:
+                    printf("Comparacao de PIB per capita:\n%s: %.2f reais vs %s: %.2f reais\n", nome, pib_per_capita, nome2, pib_per_capita2);
+                    resultado2 = (pib_per_capita > pib_per_capita2) ? 1 : 2;
+                    atributo1_2 = pib_per_capita;
+                    atributo2_2 = pib_per_capita2;
+                    sprintf(escolhido2, "PIB PER CAPITA");
+                    break;
+                default:
+                    printf("Opcao invalida!\n");
+                    }
+        if (atributo1_2 != atributo2_2){
+            printf("Resultado: Carta %d (%s) venceu!!\n\n", resultado, (resultado == 1) ? nome : nome2);
+        }else{
+            printf("Resultado: Ambos atributos empataram\n\n");}
+            
+            int soma, soma2;
+            int resultadosoma;
+            
+        printf("Agora a batalha sao com os dois atributos:\n %s mais %s", escolhido1, escolhido2);
+            soma = atributo1_1 + atributo1_2;
+            soma2 = atributo2_1 + atributo2_2;
+        printf(" %s: %d pontos\n  vs\n %s: %d pontos\n\n", escolhido1, soma, escolhido2, soma2);
+        if (soma > soma2)
+        {
+            resultadosoma = (soma > soma2) ? 1 : 2;
+            printf("Resultado: Carta %d (%s) venceu!!\n", resultado, (resultado == 1) ? nome : nome2);
+        }
+            else if (soma < soma2)
+            {
+                resultadosoma = (soma > soma2) ? 1 : 2;
+                printf("Resultado: Carta %d (%s) venceu!!\n", resultado, (resultado == 1) ? nome : nome2);
+            }
+            
+                else{
+                    printf("Empate");
+                }
+        } 
+        
+ 
